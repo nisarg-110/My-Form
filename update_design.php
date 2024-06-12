@@ -1,4 +1,5 @@
-<?php include("connection.php");
+<?php include ("connection.php");
+error_reporting(0);
 $id = $_GET['id'];
 $query = "SELECT * FROM form where id='$id'";
 $data = mysqli_query($connection, $query);
@@ -13,7 +14,7 @@ $result = mysqli_fetch_assoc($data);
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>My Form</title>
+    <title>Update My Form</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -116,11 +117,11 @@ if ($_POST["update"]) {
 
     if ($data) {
         echo "<script>alert('Record Updated')</script>";
-        ?>
+?>
 
-        <meta http-equiv = "refresh" content = "0; url = http://localhost/My-Form/display.php" /> 
+        <meta http-equiv="refresh" content="0; url = http://localhost/My-Form/display.php" />
 
-        <?php 
+<?php
     } else {
         echo "Failed to update" . mysqli_error($connection);
     }

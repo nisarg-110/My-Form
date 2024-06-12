@@ -1,3 +1,6 @@
+<a?php
+session_start();
+?>
 <html>
     <head>
         <title>Display</title>
@@ -35,15 +38,22 @@
 </html>
 
 <?php
-include "connection.php";
+include ("connection.php");
 error_reporting(0);
+
+    // $userprofile = $_SESSION["user_name"];
+    // if($userprofile){
+    //     // header("location: display.php");
+    // }
+    // else{
+    //     header("location: login.php");
+    // }
 
 $query = "SELECT * FROM form";
 $data = mysqli_query($connection, $query);
 
 $total = mysqli_num_rows($data);
 // $result = mysqli_fetch_assoc($data);
-
 
 
 if ($total != 0) {
@@ -53,9 +63,10 @@ if ($total != 0) {
     <center>
         <table border="3" cellspacing="7" width="100%">
             <tr>
-                <th width="8%">ID</th>
+                <th width="5%">ID</th>
+                <th width="5%">Image</th>
                 <th width="8%">First Name</th>
-                <th width="10%">Last Name</th>
+                <th width="8%">Last Name</th>
                 <th width="10%">Gender</th>
                 <th width="20%">Email</th>
                 <th width="10%">Phone Number</th>
@@ -67,6 +78,7 @@ if ($total != 0) {
         while ($result = mysqli_fetch_assoc($data)) {
             echo "<tr>
                     <td>".$result['id']."</td>
+                    <td><img src='".$result['my_img']."' height='100px' width='100px'></td>
                     <td>".$result['fname']."</td>
                     <td>".$result['lname']."</td>
                     <td>".$result['gender']."</td>
@@ -89,9 +101,10 @@ if ($total != 0) {
     </table>
 </center>
 
+<a href="logout.php"><input type="submit" name="" value="LogOut" style="background: blue; color: white; height: 35px; width: 100px; margin-top: 20px; font-size: 18px; border: 0; border-radius: 5px; cursor: pointer; "></a>
+
 <script>
     function checkdelete(){
         return confirm('Are you sure. You want to delete this record ?');
     }
 </script>
-

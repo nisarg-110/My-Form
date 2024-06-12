@@ -10,12 +10,16 @@
 </head>
 <body>
     <div class="container">
-        <form action="#" method="POST">
+        <form action="#" method="POST" enctype="multipart/form-data">
             <div class="title">
                 My Form
             </div>
 
             <div class="form">
+                <div class="input_field">
+                    <label>Images</label>
+                    <input type="file" name="uploadfile" class="input">
+                </div>
                 <div class="input_field">
                     <label>First Name</label>
                     <input type="text" class="input" name="fname" required>
@@ -70,6 +74,11 @@
 
 <?php 
     if($_POST["register"]) {
+        $filename = $_FILES["uploadfile"]["name"];
+        $tempname = $_FILES["uploadfile"]["tmp_name"];
+        $folder = "images/".$filename;
+        move_uploaded_file($tempname, $folder);
+
         $fname = $_POST["fname"];
         $lname = $_POST["lname"];
         $pwd = $_POST["password"];
@@ -79,7 +88,7 @@
         $phone = $_POST["phone"];
         $address = $_POST["address"];
 
-        $query = "INSERT INTO FORM (fname, lname, password, cpassword, gender, email, phone, address) VALUES ('$fname', '$lname', '$pwd', '$cpwd', '$gender', '$email', '$phone', '$address')";
+        $query = "INSERT INTO FORM (my_img, fname, lname, password, cpassword, gender, email, phone, address) VALUES ('$folder', '$fname', '$lname', '$pwd', '$cpwd', '$gender', '$email', '$phone', '$address')";
         $data = mysqli_query($connection, $query);
 
         
