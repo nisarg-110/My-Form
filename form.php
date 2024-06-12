@@ -12,7 +12,7 @@
     <div class="container">
         <form action="#" method="POST">
             <div class="title">
-                Registration Form
+                My Form
             </div>
 
             <div class="form">
