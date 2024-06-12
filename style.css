@@ -1,0 +1,125 @@
+/* Basic reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding-top: 50px; /* Adds margin from the top */
+    padding-bottom: 50px; 
+}
+
+/* Container styling */
+.container {
+    background-color: #fff;
+    padding: 25px 30px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+    margin: 30px;
+}
+
+/* Title styling */
+.title {
+    font-size: 24px;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Form styling */
+.form .input_field {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Label styling */
+.form .input_field label {
+    margin-bottom: 5px;
+    color: #333;
+}
+
+/* Input, select, and textarea styling */
+.form .input_field .input,
+.form .input_field select,
+.form .input_field textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    font-size: 16px;
+}
+
+/* Textarea styling */
+.form .input_field textarea {
+    resize: none;
+    height: 100px;
+}
+
+/* Terms and conditions styling */
+.form .input_field.terms {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Add some space between the checkbox and the label */
+}
+
+.form .input_field.terms .check {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.form .input_field.terms .checkmark {
+    width: 20px;
+    height: 20px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    position: relative;
+}
+
+.form .input_field.terms input[type="checkbox"] {
+    display: none;
+}
+
+.form .input_field.terms input[type="checkbox"]:checked + .checkmark {
+    background-color: #4caf50;
+}
+
+.form .input_field.terms input[type="checkbox"]:checked + .checkmark::after {
+    content: '';
+    position: absolute;
+    left: 6px;
+    top: 2px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+/* Button styling */
+.form .input_field .btn {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background-color: #4caf50;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.form .input_field .btn:hover {
+    background-color: #45a049;
+}
