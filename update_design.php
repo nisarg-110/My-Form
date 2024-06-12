@@ -122,7 +122,7 @@ if ($_POST["update"]) {
 
         <?php 
     } else {
-        echo "Failed to update";
+        echo "Failed to update" . mysqli_error($connection);
     }
 }
 ?>

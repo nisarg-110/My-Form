@@ -84,10 +84,13 @@
 
         
         if($data){
-            echo "data inserted";
+            echo "Data inserted";
+            ?>
+            <meta http-equiv = "refresh" content = "0; url = http://localhost/My-Form/display.php" /> 
+            <?php
         }
         else{
-            echo "Failed";
+            echo "Failed" . mysqli_error($connection);
         }
     }
 ?>
